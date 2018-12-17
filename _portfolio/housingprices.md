@@ -1,6 +1,6 @@
 ---
-title: "HOUSING PRICE"
-excerpt: "Predicting housing prices in CHICAGO, ILLINOIS considering house facts, crime rate in the area, socioeconomic conditions of the community, school ratings and proximity to CTA ’L’ station."
+title: "Predicting Housing Prices"
+excerpt: "Predicting housing prices in CHICAGO, considering house facts, crime rates, socioeconomic conditions, school ratings and proximity to CTA".
 header:
   image: /assets/images/housingprices/map_mean.png
   teaser: assets/images/housingprices/map_mean-th.png
