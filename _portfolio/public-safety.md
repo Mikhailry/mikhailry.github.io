@@ -2,7 +2,7 @@
 title: "Public Safety at IIT"
 excerpt: “Determine locations for deployment of public safety officers to reduce incidents rates on campus.”
 header:
-  image: /assets/images/publicsafety/unsplash-gallery-image-1.jpg
+  #image: /assets/images/publicsafety/unsplash-gallery-image-1.jpg
   teaser: assets/images/publicsafety/unsplash-gallery-image-1-th.jpg
 sidebar:
   - title: "Responsibilities"
@@ -62,7 +62,7 @@ Also, if all the incidents for the selected month don’t fit on one page, there
 https://blogs.iit.edu/public_safety/2015/01/page/2/
 
 Another thing we need to identify is how posts are stored on a web-page. In our case each post is stored in element of class ‘content’, which we are going to extract from web-pages for each month we are analyzing.
-![class element](/assets/images/publicsafety/classElement.png)
+![class element](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/classElement.png)
 
 And the last thing we need to identify how each post will be splitted into parts. We will extract:
 * Incident type
@@ -71,7 +71,7 @@ And the last thing we need to identify how each post will be splitted into parts
 * Disposition
 * Notes
 
-![post parts](/assets/images/publicsafety/postParts.png)
+![post parts](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/postParts.png)
 
 Note that posts are inconsistent in formatting and information given, for example, in the earlier posts there will be no ‘Disposition’ information. In addition to that, location information part starts with ‘ILLINOIS INSTITUTE OF TECHNOLOGY’, which is not explicitly saying us that all posts location information will start from that. So, in the extraction process, we’ve also used an approach, when we’ve first extracted location+date (‘ILLINOIS INSTITUTE OF TECHNOLOGY : MIES CAMPUS : CAMPUS WIDE 10/30/2017 03:30 AM’) and then by subtracting date of occurence obtained the location.
 
@@ -126,7 +126,7 @@ We will follow the steps below to extract data from IIT Public Safety blog:
 ```
 
 7. Take the vector of posts, extract data and puts in a dataframe, removing NA’s
-![iit df](/assets/images/publicsafety/iitDF.png)
+![iit df](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/iitDF.png)
 
 8. In the final steps of web-scraping, remove white spaces at start and end of values, remove escape characters, characters from the set [-,–,:] at the end of string and convert date of occurrence to POSIXct format.
 
@@ -143,22 +143,22 @@ As an output of the web-scraping step, we’ve obtained a data frame of incident
 
 ### Getting address for location (iitCrime_getAddress.R)
 Once we’ve looked through the obtained incident’s location information, we’ve realized, that not all incidents have the exact address, but can have an IIT Campus building name as a way to specify incident location:
-![post buildings example](/assets/images/publicsafety/postBuilding.png)
+![post buildings example](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/postBuilding.png)
 
 Or even abbreviated name, like ‘mtcc’ for ‘McCormick Tribune Campus Center’.
 For such cases we’ve built a dictionary (iit_dict_buildings.csv) of all IIT Buildings and abbreviated names with corresponding addresses.
 
 Some of the incident reports have the location specified in informal way, for instance:
-![post streets](/assets/images/publicsafety/postStreets.png)
+![post streets](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/postStreets.png)
 
 Such information can not be used straight away to determine incident’s latitude and longitude, As we consider incidents on campus and surrounding area, we’ve built a dictionary of streets (iit_dict_ns_streets.csv), that go through our area of analysis from north to south (Michigan, State, Wabash etc) with ‘South’ add-on.
-![post NS streets](/assets/images/publicsafety/postNSstreets.png)
+![post NS streets](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/postNSstreets.png)
 
 Third major group of incidents without exact address are incidents occurred at parking lots, that are specified as:
-![post parking lots](/assets/images/publicsafety/postParkingLot.png)
+![post parking lots](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/postParkingLot.png)
 
 For such reports, will be using a dictionary of parking lots, but for parking lots (iit_dict_parkings.csv) we will return latitude and longitude straight away pointing at the center of parking lot, otherwise in case of using address, we will get an intersection of two streets near the parking lot, which is misleading for our analysis.
-![post parking lots](/assets/images/publicsafety/postParkingLot2.png)
+![post parking lots](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/postParkingLot2.png)
 We’ve also included two CTA stations in this dictionary - ‘red line and 35th’ and ‘green line and 35th/34th’.
 
 We will follow the steps below to obtain exact address for the location specified by Public Safety officers:
@@ -214,7 +214,7 @@ The weather dataset that we obtained had 21 attributes. 6 of these attributes ha
 ## Feature Extraction:
 ### Weather Data:
 After cleaning the weather data, we needed to merge the weather data with the crime data based on date and time. We decided that we did not need to merge the entire weather dataset with the crime data. The attributes of weather that we chose to merge were condition, standardized condition, severity, temperature, humidity and wind. We did add both the original condition label as well as the bucketed condition to see which would give better results. The problem with merging the data sets is that the weather data is taken at discrete random time intervals (typically every hour). This meant that we could not join directly because the time in the crime data and weather data may not match up. We determined that the best estimate for the weather at the exact time of the crime is the closest weather condition in time. We used manhattan distance between the times of the crimes and the times of the weather. Our implementation of this used a nested for loop with the crime data set being the outside for loop. We take the current date/time of the crime and calculate the closest weather record. If there are two weather records of the same distance, the first weather condition was used and we merged it with the crime data set.
-![weather data](/assets/images/publicsafety/weatherData.png)
+![weather data](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/weatherData.png)
 
 ### Day, Month, Time-Bucket
 The day, month, time-bucket were extracted from the standardized date.
@@ -228,27 +228,27 @@ Geohashing is used for aggregating the latitude and longitude value in to a sing
 
 ### Consolidation of Datasets
 The IIT Incident log data, Crime Portal data, Weather Data were combined with the following columns:
-![consolidated data](/assets/images/publicsafety/consolidatedData.png)
+![consolidated data](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/consolidatedData.png)
 
 ## Exploratory Data Analysis
 There was a class imbalance between Mild Incidents and Serious Incidents:
-![incidents frequency](/assets/images/publicsafety/incFreq.png)
+![incidents frequency](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreq.png)
 
 Distribution of incidents across month of the year indicated that there were relatively low number of reported incidents in December and July, as it was Christmas Vacation and Summer Break:
-![incidents frequency by month](/assets/images/publicsafety/incFreqMonth.png)
+![incidents frequency by month](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreqMonth.png)
 
 Distribution of Incidents across the days of the week feature showed there was slightly lower incidents reported on weekends:
-![incidents frequency by weekdays](/assets/images/publicsafety/incFreqWeekdays.png)
-![incidents frequency by weekdays2](/assets/images/publicsafety/incFreqWeekdays2.png)
+![incidents frequency by weekdays](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreqWeekdays.png)
+![incidents frequency by weekdays2](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreqWeekdays2.png)
 
 Distribution of Incidents across the time buckets showed lower Incidents reported in 3:00 AM to 6:00 AM:
-![incidents frequency by time](/assets/images/publicsafety/incFreqTime.png)
-![incidents frequency by time](/assets/images/publicsafety/incFreqTime2.png)
+![incidents frequency by time](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreqTime.png)
+![incidents frequency by time](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreqTime2.png)
 
 Below are the histogram plots for weather conditions with number of incidents. The first plot from the left shows the top 5 original conditions and their frequency. The next shows the frequency after we bucketed the conditions. The last plot is a histogram for the temperature in degrees Fahrenheit:
-![weather hist](/assets/images/publicsafety/weatherHist1.png)
-![weather hist](/assets/images/publicsafety/weatherHist2.png)
-![weather hist](/assets/images/publicsafety/weatherHist3.png)
+![weather hist](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/weatherHist1.png)
+![weather hist](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/weatherHist2.png)
+![weather hist](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/weatherHist3.png)
 
 ## Predictive model
 In order to answer the question of where to send a public safety officer to prevent a crime, we built many different prediction models that will predict the probability of a serious incident happening, given a date, time, and location. The prediction model will predict that a serious incident will happen if the probability is above .5 and a mild incident will happen if the probability is below .5. Mild incidents cannot typically be prevented, so we treated them as a serious incident not happening. In order to test our models, we trained the models on the first 80% of data by date and then tested on the later 20% of data. We split by date because we are trying to predict in the future, and this is a good way to simulate and test predicting in the future. We used 4 different modeling techniques to try to predict serious incidents: Naive Bayes, Decision Trees, Random Forests, and Logistic Regression. The results of the models are listed below.
@@ -279,7 +279,7 @@ While our accuracy has fallen, we are getting models that are more realistic and
 * Limit to calls in Weather and Google address API
 * Redundant information from weather API
 * Imbalance in Crime classes in IIT Area and Campus data
-![challenges](/assets/images/publicsafety/challenges.png)
+![challenges](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/challenges.png)
 
 ## Deployment
 The application’s goal is to provide a self-explanatory visual representation of incident’s hotspots on campus based on historical data and for prediction of incidents.
@@ -292,12 +292,12 @@ Prediction of incidents provides potential incident’s hotspots for 1, 3 and 5 
 Working area splitted into side panel on the left, where user applies filters and display area to the right for visual representations with two tabs to view map with prediction and tab with historical data. In the future version, side panel will be splitted to separate filters that are applicable to prediction from filters used in historical representation.
 Currently, filters in the green box used when working with incident prediction, blue box filters when plotting hotspots based on historical data.
 
-![hot spots hist data](/assets/images/publicsafety/appHist.png)
+![hot spots hist data](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/appHist.png)
 
 To view predictions, we choose ‘Predict Incidents’ tab, choose for what period of time to do a prediction (1,3 or 5 days). Also, user may apply a time filter, to view prediction for the specific time frame during the day, for instance, from 12 to 15. That can be useful to understand which areas need more public safety resources during the day.
 Additionally, IIT campus area is splitted into 8 sectors, so that public safety patrols can easily split their zones of responsibility. All sectors are shown in red box below.
 
-![hot spots prediction](/assets/images/publicsafety/appPred.png)
+![hot spots prediction](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/appPred.png)
 
 To view incident hotspots based on historical data, we choose tab ‘historical data’ and can apply the following filters:
 * Select campus (IIT MIES or IIT KENT)
