@@ -1,6 +1,6 @@
 ---
 title: "Predicting Housing Prices"
-excerpt: "Predicting housing prices in CHICAGO, considering house facts, crime rates, socioeconomic conditions, school ratings and proximity to CTA".
+excerpt: "Predicting housing prices in CHICAGO, considering house facts, crime rates, socioeconomic conditions, school ratings and proximity to CTA"
 header:
   image: /assets/images/housingprices/map_mean.png
   teaser: assets/images/housingprices/map_mean-th.png
