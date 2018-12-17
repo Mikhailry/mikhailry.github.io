@@ -63,6 +63,7 @@ https://blogs.iit.edu/public_safety/2015/01/page/2/
 
 Another thing we need to identify is how posts are stored on a web-page. In our case each post is stored in element of class ‘content’, which we are going to extract from web-pages for each month we are analyzing.
 ![class element](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/classElement.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/classElement.png" alt="class element" class="full">
 
 And the last thing we need to identify how each post will be splitted into parts. We will extract:
 * Incident type
