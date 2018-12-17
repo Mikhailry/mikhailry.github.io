@@ -2,12 +2,12 @@
 title: "Predicting Housing Prices"
 excerpt: "Predicting housing prices in CHICAGO, considering house facts, crime rates, socioeconomic conditions, school ratings and proximity to CTA"
 header:
-  image: /assets/images/housingprices/map_mean.png
+  #image: /assets/images/housingprices/map_mean.png
   teaser: assets/images/housingprices/map_mean-th.png
 sidebar:
-  - title: "Role"
-    image: /assets/images/housingprices/logo.png
-    image_alt: "logo"
+  - title: "Responsibilities"
+    #image: /assets/images/housingprices/logo.png
+    #image_alt: "logo"
     text: "Data wrangling, visualizations, linear models"
 gallery:
   - url: /assets/images/housingprices/map_mean.png
@@ -40,5 +40,7 @@ baths in the house and the socio-economic condition of the communities.
 
 
 [If you are interested in more details, please refer to a full report](https://github.com/Mikhailry/HousingPrice/blob/master/report/HousingPriceProject.pdf)
+
+[Repository](https://github.com/Mikhailry/HousingPrice)
 
 [The interactive map of Chicago communities with the variety of summary metrics about the houses for sale overlayed]()
