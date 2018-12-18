@@ -353,14 +353,14 @@ Extending the research to other university campuses in Chicago area to understan
 
 ## References
 Chicago Data Portal. Crimes - 2001 to present | City of Chicago | Data Portal. (n.d.). Retrieved
-from (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2)
+from [https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2] (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2)
 
-Github. Mikhailry/campus_safety. (n.d.). Retrieved from (https://github.com/Mikhailry/campus_safety.git)
+Github. Mikhailry/campus_safety. (n.d.). Retrieved from [https://github.com/Mikhailry/campus_safety.git](https://github.com/Mikhailry/campus_safety.git)
 
-Rose Package. (2015). Retrieved from (https://cran.r-project.org/web/packages/ROSE/ROSE.pdf)
+Rose Package. (2015). Retrieved from [https://cran.r-project.org/web/packages/ROSE/ROSE.pdf](https://cran.r-project.org/web/packages/ROSE/ROSE.pdf)
 
-Shinyapps. Mikhailry. (n.d). Retreived from (https://mikhailry.shinyapps.io/CampusSafety/)
+Shinyapps. Mikhailry. (n.d). Retreived from [https://mikhailry.shinyapps.io/CampusSafety/](https://mikhailry.shinyapps.io/CampusSafety/)
 
-Weather Underground API. (n.d.). Retrieved from (https://www.wunderground.com/weather/api/)
+Weather Underground API. (n.d.). Retrieved from [https://www.wunderground.com/weather/api/](https://www.wunderground.com/weather/api/)
 
-Weather Underground R API. (n.d.). Retrieved from (https://cran.r-project.org/web/packages/rwunderground/README.html)
+Weather Underground R API. (n.d.). Retrieved from [https://cran.r-project.org/web/packages/rwunderground/README.html](https://cran.r-project.org/web/packages/rwunderground/README.html)
