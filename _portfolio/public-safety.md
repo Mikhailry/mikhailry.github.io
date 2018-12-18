@@ -3,13 +3,13 @@ title: "Public Safety at IIT"
 excerpt: “Determine locations for deployment of public safety officers to reduce incidents rates on campus.”
 header:
   #image: /assets/images/publicsafety/unsplash-gallery-image-1.jpg
-  teaser: assets/images/publicsafety/unsplash-gallery-image-1-th.jpg
+  teaser: assets/images/publicsafety/publicsafety-th.png
 sidebar:
   - title: "Responsibilities"
     #image: http://placehold.it/350x250
     #image_alt: "logo"
-    text: "Designer, Front-End Developer"
-gallery:
+    text: "Web scraping, data wrangling, modelling, deployment"
+#gallery:
   - url: /assets/images/publicsafety/unsplash-gallery-image-1.jpg
     image_path: assets/images/publicsafety/unsplash-gallery-image-1-th.jpg
     alt: "placeholder image 1"
@@ -20,10 +20,6 @@ gallery:
     image_path: assets/images/publicsafety/unsplash-gallery-image-3-th.jpg
     alt: "placeholder image 3"
 ---
-
-# PUBLIC SAFETY AT Illinois Institute of Technology
-
-**_NB: Final codes can be founded in 'FINAL' folder._**
 
 ## Problem Statement and Importance
 The business problem that we are trying to solve using the project is: “Determine locations for deployment of public safety measures to effectively reduce incidents rates on campus and the surrounding areas”. The importance of solving the business problem could be listed as follows :
@@ -57,9 +53,17 @@ First, we’ve found out whether we need special permission to web-scrape data f
 Second, we need to examine the structure we are going to web-scrape. Incidents that occur at IIT campus are published in form of blog posts, available [here](https://blogs.iit.edu/public_safety).
 Each post can have several incidents reported or message that there are no incidents to report.
 
-All the archive incidents are stored by months and can be accessed from web or by adding year and month in the numerical form separated by ‘/’, for example, to view incidents for January 2015 the link will be the following: https://blogs.iit.edu/public_safety/2015/01/
+All the archive incidents are stored by months and can be accessed from web or by adding year and month in the numerical form separated by ‘/’, for example, to view incidents for January 2015 the link will be the following:
+
+```
+https://blogs.iit.edu/public_safety/2015/01/
+```
+
 Also, if all the incidents for the selected month don’t fit on one page, there will be several pages for the month which can be accessed by adding ‘/page/2’, where ‘2’ is page number:
+
+```
 https://blogs.iit.edu/public_safety/2015/01/page/2/
+```
 
 Another thing we need to identify is how posts are stored on a web-page. In our case each post is stored in element of class ‘content’, which we are going to extract from web-pages for each month we are analyzing.
 
@@ -79,9 +83,11 @@ Note that posts are inconsistent in formatting and information given, for exampl
 ### Weather Data
 We found many different weather data candidates for past data, however many of them came at some cost. We determined that the best weather API to use was [Underground Weather](www.wunderground.com). They did have plans that were available for purchase, but they also allowed free access as long as we stay under 500 calls per day and 10 calls per minute. One of the deciding factors for using Underground Weather’s API is that they have created an R package to easily make calls to the API. The package is called ‘rwunderground’. In order to get this package, you must use devtools and install from github with the command:
 
+```
 *devtools::install_github('ALShum/rwunderground')*
+```
 
-You can then use commands within the package to set the key, set the location, and get the historical data given the key, location, start date, and end date. Since we had obtained a free key, we could only call the API 500 times a day. Because of this, we made sure the set the start date and end date so that there are only 500 days in between. This meant that in order to get all of the data that we wanted for the 3 years, we needed to run this code on 3 separate days and then merge the data. The history function to get the historical data had a convenient argument that limits the calls to 10 per minute so that we do not go over the free limit. We also monitored to total calls per day to ensure that we did not go over the total calls in a day. Also, since we had to do this over three days, the datasets were obtained and saved manually each day. The [readme](https://cran.r-project.org/web/packages/rwunderground/README.html) for the rwunderground package supplied easy instrctions for how to make calls to the API.
+You can then use commands within the package to set the key, set the location, and get the historical data given the key, location, start date, and end date. Since we had obtained a free key, we could only call the API 500 times a day. Because of this, we made sure the set the start date and end date so that there are only 500 days in between. This meant that in order to get all of the data that we wanted for the 3 years, we needed to run this code on 3 separate days and then merge the data. The history function to get the historical data had a convenient argument that limits the calls to 10 per minute so that we do not go over the free limit. We also monitored to total calls per day to ensure that we did not go over the total calls in a day. Also, since we had to do this over three days, the datasets were obtained and saved manually each day. The [readme](https://cran.r-project.org/web/packages/rwunderground/README.html) for the rwunderground package supplied easy instructions for how to make calls to the API.
 
 ### Crime Portal Data
 The crime data for the surrounding areas of IIT (Kent and Meis) was obtained from the Chicago Data Portal. The bounds was a 2 mile grid centered at the Mies Campus and a 1 mile grid centered at Kent Campus. The latitude bounds were 41.8603, 41.8025 longitude bounds were -87.66687, -87.58759 for Meis campus, and, latitude bounds were 41.89363, 41.86465 and longitude bounds were -87.66203, -87.62239 for Kent campus. Using these bounds all the data from 2015 onwards was pulled from the crime data portal to incorporate it into further steps including EDA and the prediction model.
@@ -126,7 +132,8 @@ We will follow the steps below to extract data from IIT Public Safety blog:
 #[998] "\r\n\t\t\thello,\n \nthere is no information to report for the  iitpsd public crime log for 2/4/2016.\n \nthank you,\n \n\t\t\t\r\n\t\t"  
 ```
 
-7. Take the vector of posts, extract data and puts in a dataframe, removing NA’s
+7. Take the vector of posts, extract data and puts in a dataframe, removing NA’s:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/iitDF.png" alt="iit DF" class="full">
 
 
@@ -145,6 +152,7 @@ As an output of the web-scraping step, we’ve obtained a data frame of incident
 
 ### Getting address for location (iitCrime_getAddress.R)
 Once we’ve looked through the obtained incident’s location information, we’ve realized, that not all incidents have the exact address, but can have an IIT Campus building name as a way to specify incident location:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/postBuilding.png" alt="post building" class="full">
 
 
@@ -152,16 +160,21 @@ Or even abbreviated name, like ‘mtcc’ for ‘McCormick Tribune Campus Center
 For such cases we’ve built a dictionary (iit_dict_buildings.csv) of all IIT Buildings and abbreviated names with corresponding addresses.
 
 Some of the incident reports have the location specified in informal way, for instance:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/postStreets.png" alt="post streets" class="full">
 
 Such information can not be used straight away to determine incident’s latitude and longitude, As we consider incidents on campus and surrounding area, we’ve built a dictionary of streets (iit_dict_ns_streets.csv), that go through our area of analysis from north to south (Michigan, State, Wabash etc) with ‘South’ add-on.
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/postNSstreets.png" alt="post NS streets" class="full">
 
 Third major group of incidents without exact address are incidents occurred at parking lots, that are specified as:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/postParkingLot.png" alt="post parking lots" class="full">
 
 For such reports, will be using a dictionary of parking lots, but for parking lots (iit_dict_parkings.csv) we will return latitude and longitude straight away pointing at the center of parking lot, otherwise in case of using address, we will get an intersection of two streets near the parking lot, which is misleading for our analysis.
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/postParkingLot2.png" alt="post parking lots" class="full">
+
 We’ve also included two CTA stations in this dictionary - ‘red line and 35th’ and ‘green line and 35th/34th’.
 
 We will follow the steps below to obtain exact address for the location specified by Public Safety officers:
@@ -183,6 +196,7 @@ We will follow the steps below to obtain exact address for the location specifie
 From the extracted data of IIT-logs the incident type in many cases was not the actual incident type. For instance, the incident type may be logged as Trespassing, however, going through the Notes attribute of the log it is clear that it was an Assault.
 
 To fix the problem text analysis was performed by identifying observations that contained key words associated to a particular incident type. For instance, cluster of words "medical", "injury", "slip", "emergency", "transport", “injur” and “fainted” were tagged as “MEDICAL INCIDENT”. Below is the cluster words associated with the different incident types,
+
 ```r
 "marijuana", "narcotic", "drug" => “NARCOTICS”
 "robb" => “ROBBERY”
@@ -217,6 +231,7 @@ The weather dataset that we obtained had 21 attributes. 6 of these attributes ha
 ## Feature Extraction:
 ### Weather Data:
 After cleaning the weather data, we needed to merge the weather data with the crime data based on date and time. We decided that we did not need to merge the entire weather dataset with the crime data. The attributes of weather that we chose to merge were condition, standardized condition, severity, temperature, humidity and wind. We did add both the original condition label as well as the bucketed condition to see which would give better results. The problem with merging the data sets is that the weather data is taken at discrete random time intervals (typically every hour). This meant that we could not join directly because the time in the crime data and weather data may not match up. We determined that the best estimate for the weather at the exact time of the crime is the closest weather condition in time. We used manhattan distance between the times of the crimes and the times of the weather. Our implementation of this used a nested for loop with the crime data set being the outside for loop. We take the current date/time of the crime and calculate the closest weather record. If there are two weather records of the same distance, the first weather condition was used and we merged it with the crime data set.
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/weatherData.png" alt="weather data" class="full">
 
 ### Day, Month, Time-Bucket
@@ -231,26 +246,35 @@ Geohashing is used for aggregating the latitude and longitude value in to a sing
 
 ### Consolidation of Datasets
 The IIT Incident log data, Crime Portal data, Weather Data were combined with the following columns:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/consolidatedData.png" alt="consolidated data" class="full">
 
 ## Exploratory Data Analysis
 There was a class imbalance between Mild Incidents and Serious Incidents:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/incFreq.png" alt="incident's frequency" class="full">
 
 Distribution of incidents across month of the year indicated that there were relatively low number of reported incidents in December and July, as it was Christmas Vacation and Summer Break:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/incFreqMonth.png" alt="incident's frequency" class="full">
 
 Distribution of Incidents across the days of the week feature showed there was slightly lower incidents reported on weekends:
-![incidents frequency by weekdays](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreqWeekdays.png)
-![incidents frequency by weekdays2](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/images/publicsafety/incFreqWeekdays2.png)
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/incFreqWeekdays.png" alt="incident's frequency" class="full">
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/incFreqWeekdays2.png" alt="incident's frequency" class="full">
 
 Distribution of Incidents across the time buckets showed lower Incidents reported in 3:00 AM to 6:00 AM:
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/incFreqTime.png" alt="incident's frequency by time" class="full">
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/incFreqTime2.png" alt="incident's frequency by time" class="full">
 
 Below are the histogram plots for weather conditions with number of incidents. The first plot from the left shows the top 5 original conditions and their frequency. The next shows the frequency after we bucketed the conditions. The last plot is a histogram for the temperature in degrees Fahrenheit:
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/weatherHist1.png" alt="weather histogram" class="full">
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/weatherHist2.png" alt="weather histogram" class="full">
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/weatherHist3.png" alt="weather histogram" class="full">
 
 ## Predictive model
@@ -282,6 +306,7 @@ While our accuracy has fallen, we are getting models that are more realistic and
 * Limit to calls in Weather and Google address API
 * Redundant information from weather API
 * Imbalance in Crime classes in IIT Area and Campus data
+
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/publicsafety/challenges.png" alt="challenges" class="full">
 
 ## Deployment
@@ -328,14 +353,14 @@ Extending the research to other university campuses in Chicago area to understan
 
 ## References
 Chicago Data Portal. Crimes - 2001 to present | City of Chicago | Data Portal. (n.d.). Retrieved
-from https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2
+from (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2)
 
-Github. Mikhailry/campus_safety. (n.d.). Retrieved from https://github.com/Mikhailry/campus_safety.git
+Github. Mikhailry/campus_safety. (n.d.). Retrieved from (https://github.com/Mikhailry/campus_safety.git)
 
-Rose Package. (2015). Retrieved from https://cran.r-project.org/web/packages/ROSE/ROSE.pdf
+Rose Package. (2015). Retrieved from (https://cran.r-project.org/web/packages/ROSE/ROSE.pdf)
 
-Shinyapps. Mikhailry. (n.d). Retreived from https://mikhailry.shinyapps.io/CampusSafety/
+Shinyapps. Mikhailry. (n.d). Retreived from (https://mikhailry.shinyapps.io/CampusSafety/)
 
-Weather Underground API. (n.d.). Retrieved from https://www.wunderground.com/weather/api/
+Weather Underground API. (n.d.). Retrieved from (https://www.wunderground.com/weather/api/)
 
-Weather Underground R API. (n.d.). Retrieved from https://cran.r-project.org/web/packages/rwunderground/README.html
+Weather Underground R API. (n.d.). Retrieved from (https://cran.r-project.org/web/packages/rwunderground/README.html)
