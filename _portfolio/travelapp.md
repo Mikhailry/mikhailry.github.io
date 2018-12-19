@@ -8,7 +8,12 @@ sidebar:
   - title: "Responsibilities"
     #image: http://placehold.it/350x250
     #image_alt: "logo"
-    text: "MS Azure logic apps pipeline creation"
+    text: "MS Azure logic apps pipeline creation, setup of Amadeus API requests"
+    - title: "Github repo"
+    link: https://github.com/Mikhailry/FlightPriceAnalytics
+    - title: "Visualizations"
+    text: [Flight price analytics dashboard](https://public.tableau.com/profile/mikhailr#!/vizhome/FlightPriceAnalytics_0/FlightPriceAnalysis)
+    [Inspiration Search](https://public.tableau.com/profile/mikhailr#!/vizhome/Inspiration_1/Inspiration)
 #gallery:
   - url: /assets/images/unsplash-gallery-image-1.jpg
     image_path: assets/images/unsplash-gallery-image-1-th.jpg
@@ -122,13 +127,14 @@ These location_ids were used as input to the ‘POI’ endpoint along with tag_l
 ## Appendix
 
 [Flight price analytics dashboard](https://public.tableau.com/profile/mikhailr#!/vizhome/FlightPriceAnalytics_0/FlightPriceAnalysis)
+
 [Inspiration Search](https://public.tableau.com/profile/mikhailr#!/vizhome/Inspiration_1/Inspiration)
 
 ## References
 
-1. “Azure Cosmos DB – Globally Distributed Database Service | Microsoft Azure.” – Globally Distributed Database Service | Microsoft Azure, azure.microsoft.com/en-us/services/cosmos-db/.
-2. Jenkins, Aric. “Cheap Flights: Tuesday Not the Best Day to Buy Plane Tickets | Money.” Time, Time, 5 July 2017, time.com/money/4845914/tuesday-not-cheapest-day-to-buy-plane-tickets/
-3. “Enterprise Integration with Azure Logic Apps.” Enterprise Integration with Azure Logic Apps | Microsoft Docs, docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview
+1. “Azure Cosmos DB – Globally Distributed Database Service, Microsoft Azure.” – Globally Distributed Database Service, Microsoft Azure, azure.microsoft.com/en-us/services/cosmos-db/.
+2. Jenkins, Aric. “Cheap Flights: Tuesday Not the Best Day to Buy Plane Tickets, Money.” Time, Time, 5 July 2017, time.com/money/4845914/tuesday-not-cheapest-day-to-buy-plane-tickets/
+3. “Enterprise Integration with Azure Logic Apps.” Enterprise Integration with Azure Logic Apps, Microsoft Docs, docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview
 4. “Smart Travel Content.” Triposo, www.triposo.com/api/.
 5. “Tableau.” Tableau Software, www.tableau.com/support/help.
 6. Mills, Brianna. “Is There a Cheapest Day to Buy Flights?” Travel Hacks: The Cheapest Day to Buy Flights, 19 Apr. 2018, www.alternativeairlines.com/blog/cheapest-day-to-buy-flights
@@ -137,6 +143,6 @@ These location_ids were used as input to the ‘POI’ endpoint along with tag_l
 9. Ekstein, Nikki. “Why You Shouldn’t Wait Until Tuesday to Buy Plane Tickets.” Bloomberg.com, Bloomberg, 5 July 2017, www.bloomberg.com/news/articles/2017-07-05/why-you-shouldn-t-wait-unti-tuesday-to-buy-plane-tickets
 10. Docs.python.org. (2018). The Python Language Reference — Python 2.7.15 documentation. [online] Available at: https://docs.python.org/2/reference/index.html [Accessed 1 Dec. 2018].
 11. Visualize Cosmos DB Data in Tableau. (n.d.). Retrieved from https://www.cdata.com/kb/tech/cosmosdb-odbc-tableau.rst In‑text: ("Visualize Cosmos DB Data in Tableau," n.d.)
-12. Amadeus Travel Innovation Sandbox | API Catalog. (n.d.). Retrieved from https://sandbox.amadeus.com/api-catalog
+12. Amadeus Travel Innovation Sandbox, API Catalog. (n.d.). Retrieved from https://sandbox.amadeus.com/api-catalog
 13. IATA airport code. (2018, November 28). Retrieved from https://en.wikipedia.org/wiki/IATA_airport_code
 14. Distance Between Two Points, Maths First, Institute of Fundamental Sciences, Massey University. (n.d.). Retrieved from http://mathsfirst.massey.ac.nz/Algebra/PythagorasTheorem/pythapp.htm
