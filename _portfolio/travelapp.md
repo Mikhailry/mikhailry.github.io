@@ -3,7 +3,7 @@ title: "Travel app"
 excerpt: "Analysis of Flight Pricing and Recommendations for Travel"
 header:
   #image: /assets/images/unsplash-gallery-image-1.jpg
-  teaser: assets/images/travelapp/travelapp-th.jpg
+  teaser: assets/images/travelapp/travelapp-th.png
 sidebar:
   - title: "Responsibilities"
     #image: http://placehold.it/350x250
