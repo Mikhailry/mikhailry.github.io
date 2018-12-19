@@ -1,6 +1,6 @@
 ---
 title: "Public Safety at IIT"
-excerpt: “Determine locations for deployment of public safety officers to reduce incidents rates on campus.”
+excerpt: Determine locations for deployment of public safety officers to reduce incidents rates on campus
 header:
   #image: /assets/images/publicsafety/unsplash-gallery-image-1.jpg
   teaser: assets/images/publicsafety/publicsafety-th.png
