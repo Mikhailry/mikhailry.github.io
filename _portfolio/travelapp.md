@@ -9,9 +9,6 @@ sidebar:
     #image: http://placehold.it/350x250
     #image_alt: "logo"
     text: "MS Azure logic apps pipeline creation, setup of Amadeus API requests"
-    - title: "Visualizations"
-    text: [Flight price analytics dashboard]#(https://public.tableau.com/profile/mikhailr#!/vizhome/FlightPriceAnalytics_0/FlightPriceAnalysis)
-    #[Inspiration Search](https://public.tableau.com/profile/mikhailr#!/vizhome/Inspiration_1/Inspiration)
 #gallery:
   - url: /assets/images/unsplash-gallery-image-1.jpg
     image_path: assets/images/unsplash-gallery-image-1-th.jpg
