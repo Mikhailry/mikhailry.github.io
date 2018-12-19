@@ -3,7 +3,7 @@ title: "Travel app"
 excerpt: "Analysis of Flight Pricing and Recommendations for Travel"
 header:
   #image: /assets/images/unsplash-gallery-image-1.jpg
-  teaser: assets/images/unsplash-gallery-image-1-th.jpg
+  teaser: assets/images/travelapp/travelapp-th.jpg
 sidebar:
   - title: "Responsibilities"
     #image: http://placehold.it/350x250
@@ -20,7 +20,7 @@ sidebar:
     image_path: assets/images/unsplash-gallery-image-3-th.jpg
     alt: "placeholder image 3"
 ---
-##Introduction
+## Introduction
 
 People generally feel that booking of flight ticket should be done as earlier as possible to get the best deal. But does booking flight tickets earlier always yield the cheapest price? Or is there a specific day of the week to book a flight or to travel on that minimizes the price of the tickets? To answer these question we’ve setup a data pipeline to retrieve and store flight price data in a structured format in Cosmos DB [1]. In our analysis, we derive insights about the trends in flight prices, the cheapest day and part of the day to travel and compare our results with the study done by ‘Hopper.com’ [2]. Secondly, we create a vacation recommendation engine, by using flight data collected and combining it with points of interest data in those specific locations to inspire a person for the next travel.
 
@@ -35,7 +35,7 @@ First, answer the following questions that will help travellers to optimize thei
 Second, help the travellers to plan a vacation and get inspiring recommendations when you have only a budget you want to spend, origin airport and a month of travel at hand.
 
 
-##Plan of Work
+## Plan of Work
 
 1. Set recurring job with Azure Logic Apps [3] to obtain price for flight tickets from ORD (Chicago O’Hare) on 4 destinations: DEN, NYC (EWR, JFK, LGA), LAX, MIA. Prices obtained twice a day at midnight and noon from 1st November, 2018 to 20th November, 2018.
 2. Collect data for the flights planned for two weeks in December: 12/02/2018 - 12/08/2018 and 12/23/2018 - 12/29/2018.
@@ -47,7 +47,7 @@ Second, help the travellers to plan a vacation and get inspiring recommendations
 8. Build an interactive Tableau dashboard of price-map from inspiration flight tickets search.
 9. Show recommendations of things to do based on the user’s choice of destination and interests.
 
-##Literature Review
+## Literature Review
 
 Analyzing flight prices to determine if there is a particular pattern that airlines follow while announcing the airfares for different routes is the first objective of this project. Referring to the various sources from the citation it is clear that there is a variety of responses.
 
@@ -59,14 +59,14 @@ Dara Continenza from Southern Living[7] concurs with Aric Jenkins as she referen
 
 Rick Seaney in his blog[8] makes multiple conjectures such as, domestic flights tickets are best priced at 3PM eastern time on Tuesdays, domestic flight tickets bought in a window of 3 month to 30 days before the departure are best priced, international flight tickets should be booked between 5 and a half months to one and a half months before departure dates.
 
-##Tools used
+## Tools used
 
 * Cosmos DB is a globally distributed and horizontally scaled database system which ensures high-availability and low-latency capabilities and consistency which can be user defined or chosen from preset options. Low-latency capabilities are crucial in delivering the recommendations in real-time.
 * Logic Apps is an Azure cloud service to automate task execution, building workflows and making connections between a variety of applications to trigger execution on events, access and process data, store it. Logic apps are easy to use, has a drag-and-drop interface and highly customizable with user defined functions.
 * Tableau is a visualization tool that allows users to create interactive dashboards to portray a story using data. The data fed into tableau could be from different databases including Cosmos DB.
 * Python[10] is an interpreted high-level programming language for general purpose programming.
 
-##Data Pipeline
+## Data Pipeline
 
 A data pipeline was set-up using the Logic App in the Azure environment to recurrently collect the responses from the ‘lowfare’ endpoint of Amadeus API[12]. The recurrent job was set to retrieve the data twice a day, at 12AM and 12PM (figure 1). This recurrent job ran everyday from 1st November, 2018 to 20th November, 2018 as there was a limit to the number of API calls which could be made.
 
@@ -82,7 +82,7 @@ The destinations and travel dates are initialized and passed into a nested loop 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/travelapp/fig4.png" class="full">
 
-##Inspiration Search
+## Inspiration Search
 
 In order to help customers to choose a travel destination, given the type of vacation one is looking for, a month of travel and a budget available, a dashboard to aid in the decision making process was created. Data is aggregated from four different sources, preprocessed and visualized with the Tableau dashboard.
 First, the inspiration search endpoint of Amadeus API was used to retrieve data on the travel destinations, along with details of the flight price and departure date. A job was set up in the Microsoft Azure’s logic app to retrieve required data. The inputs for the API were, the origin (IATA code), single departure date or a range of departure dates, and whether it’s a direct flight or not. The origin was set to “CHI”. The range of dates which were chosen spanned across each of the months from December, 2018 to May, 2019. The Logic app was programmed in a similar way as the data pipeline stage (explained in the previous section), the difference being that the Logic app did not need to run recurrently. The responses from the API were parsed to JSON format and stored as documents in a collection in Cosmos DB. The attributes of each document were, ‘airline’, ‘departure_date’, ‘destination’, ‘id’, ‘origin’, ‘price’, ‘return_date’. Additional attributes are created for each document by default, such as, ‘\_rid’, ‘\_self’, ‘\_etag’, ‘\_attachements’ and ‘\_ts’.
@@ -97,7 +97,7 @@ sqrt((x1-x2)^2+(y1-y2)^2)
 The two points under consideration were, the latitude and longitude of the city retrieved from the ‘location’ endpoint and, the latitude and longitude of the airport. The value of location_id which had the minimum distance between the city center and airport was chosen.
 These location_ids were used as input to the ‘POI’ endpoint along with tag_labels which represent the type of vacation one wants to go on. Vacation for the kids  are represented with 'zoos, watersports, wildlife, exploringnature, character-Kid_friendly, camping, beaches, amusementparks'. The cultural vacation is represented with  'architecture, hoponhopoff, museums, sightseeing, showstheatresandmusic, walkingtours' tags. Sports/adventure vacation are associated with ‘adrenaline, diving, fishing, hiking, hunting, kayaking, rafting, sailing, surfing, wintersport, watersports, sports’ tags. Finally, a romantic vacation consists of places with ‘wineries, character-Romantic, feature-Live_music, cuisine-Fine_dining‘ tags. The response of the ‘POI’ endpoint contained the names of the points of interest (attraction) for that city, a short the description of the place, and the location_id. All the data was combined using multiple joins. The final data contained the following variables, ‘Attraction’ (point of interest), ‘snippet’ (short description of the attraction), ‘category’ (kids, culture, sports/adventure, romantic), ‘city’, ‘country’, ‘departure date’, ‘departure day’ , ‘departure month’ , ‘departure year’ (all three extracted from departure date), ‘latitude’, ‘longitude’, ‘price’ (flight price), among other variables. This combined data was finally uploaded back in Cosmos DB  and this collection was connected to Tableau using an ODBC driver. An interactive visualization was created on Tableau to help customers in their decision making process.
 
-##Results
+## Results
 
 * Analysis of the average flight prices for different destinations based on the day of booking  shows that, in general, it is cheaper to book a flight ticket on Thursday (figure 5). This aligns with the research results conducted by ‘Hooper.com’.
 
@@ -119,12 +119,12 @@ These location_ids were used as input to the ‘POI’ endpoint along with tag_l
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/travelapp/fig9.png" class="full">
 
-##Appendix
+## Appendix
 
 [Flight price analytics dashboard](https://public.tableau.com/profile/mikhailr#!/vizhome/FlightPriceAnalytics_0/FlightPriceAnalysis)
 [Inspiration Search](https://public.tableau.com/profile/mikhailr#!/vizhome/Inspiration_1/Inspiration)
 
-##References
+## References
 
 1. “Azure Cosmos DB – Globally Distributed Database Service | Microsoft Azure.” – Globally Distributed Database Service | Microsoft Azure, azure.microsoft.com/en-us/services/cosmos-db/.
 2. Jenkins, Aric. “Cheap Flights: Tuesday Not the Best Day to Buy Plane Tickets | Money.” Time, Time, 5 July 2017, time.com/money/4845914/tuesday-not-cheapest-day-to-buy-plane-tickets/
