@@ -8,7 +8,7 @@ sidebar:
   - title: "Responsibilities"
     #image: /assets/images/housingprices/logo.png
     #image_alt: "logo"
-    text: "Data wrangling, visualizations, linear models"
+    text: "Data wrangling, visualizations, linear models, deployment"
 gallery:
   - url: /assets/images/housingprices/map_mean.png
     image_path: assets/images/housingprices/map_mean-th.png
