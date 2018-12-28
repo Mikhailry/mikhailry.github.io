@@ -1,32 +1,32 @@
 ---
-title: "Baz Boom Identity"
-excerpt: "Baz Boom design system including logo mark, website design, and branding applications."
+title: "FMCG promo campaign"
+excerpt: "Define online marketing strategy KPI's and build interactive dashboards"
 header:
-  image: /assets/images/unsplash-gallery-image-1.jpg
-  teaser: assets/images/unsplash-gallery-image-1-th.jpg
+  #image: /assets/images/unsplash-gallery-image-1.jpg
+  teaser: assets/images/fmcgpromoreport/codeactivations-th.png
 sidebar:
-  - title: "Role"
-    image: http://placehold.it/350x250
-    image_alt: "logo"
-    text: "Designer, Front-End Developer"
   - title: "Responsibilities"
-    text: "Reuters try PR stupid commenters should isn't a business model"
+    #image: http://placehold.it/350x250
+    #image_alt: "logo"
+    text: "KPI's design, dummy data generation, interactive Tableau dashboards"
 gallery:
-  - url: /assets/images/unsplash-gallery-image-1.jpg
-    image_path: assets/images/unsplash-gallery-image-1-th.jpg
-    alt: "placeholder image 1"
-  - url: /assets/images/unsplash-gallery-image-2.jpg
-    image_path: assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-  - url: /assets/images/unsplash-gallery-image-3.jpg
-    image_path: assets/images/unsplash-gallery-image-3-th.jpg
-    alt: "placeholder image 3"
+  - url: /assets/images/fmcgpromoreport/codeactivations.png
+    image_path: assets/images/fmcgpromoreport/codeactivations-th.png
+    alt: "promo code activations"
+  - url: /assets/images/fmcgpromoreport/emailtrends.png
+    image_path: assets/images/fmcgpromoreport/emailtrends-th.png
+    alt: "email marketing trends"
+  - url: /assets/images/fmcgpromoreport/mobiletrends.png
+    image_path: assets/images/fmcgpromoreport/mobiletrends-th.png
+    alt: "mobile marketing trends"
 ---
 
-Pictures of Goats section West Seattle Blog dingbat newspaper rubber cement Google+ newsroom cafe news.me rubber cement, Ushahidi Kindle Single syndicated Instagram HuffPo community mthomps, Mozilla iPhone app should isn't a business model curmudgeon Snarkmarket Tim Carmody production of innocence. Fuego tweets community DocumentCloud metered model Gardening & War section YouTube social media SEO information overload analytics Aron Pilhofer Journal Register data visualization WikiLeaks Groupon, collaboration Steve Jobs we need a Nate Silver AP What Would Google Do the power of the press belongs to the person who owns one Clay Shirky curmudgeon Voice of San Diego free as in beer dead trees the notion of the public Lucius Nieman.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum metus ligula, sit amet consectetur massa luctus non. Curabitur auctor dapibus mauris non vehicula. In mollis ultricies tortor, nec lacinia metus dignissim ut. Quisque semper, eros sed porta fringilla, turpis magna gravida nulla, tincidunt consequat magna lorem sed tellus. Nulla sed lorem purus. Donec vel ipsum in dui fringilla lobortis. Vivamus vitae justo aliquet, dapibus felis eget, ullamcorper arcu. Donec condimentum lectus risus, eget lobortis elit bibendum vel. Sed ut justo diam. Donec pulvinar felis ante, in fringilla nibh accumsan vel. Mauris vulputate feugiat quam, et venenatis nulla sollicitudin eget. Mauris consequat tortor ut magna tristique sodales. Sed facilisis elit id tellus pulvinar, non molestie felis congue.
 
-{% include gallery caption="This is a sample gallery to go along with this case study." %}
 
-hackgate copyright Lucius Nieman CNN leaves it there right-sizing a giant stack of newspapers that you'll never read net neutrality algorithms RT algorithms TechCrunch 5% corruption, horse-race coverage Gardening & War section CTR try PR CPC David Cohn shoot a photo algorithms content is king Android Snarkmarket crowdfunding, Fuego Twitter topples dictators YouTube abundance WordPress Reuters try PR stupid commenters should isn't a business model bringing a tote bag to a knife fight.
+{% include gallery caption="Interactive dashboards for main KPI's" %}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum metus ligula, sit amet consectetur massa luctus non. Curabitur auctor dapibus mauris non vehicula. In mollis ultricies tortor, nec lacinia metus dignissim ut. Quisque semper, eros sed porta fringilla, turpis magna gravida nulla, tincidunt consequat magna lorem sed tellus. Nulla sed lorem purus. Donec vel ipsum in dui fringilla lobortis. Vivamus vitae justo aliquet, dapibus felis eget, ullamcorper arcu. Donec condimentum lectus risus, eget lobortis elit bibendum vel. Sed ut justo diam. Donec pulvinar felis ante, in fringilla nibh accumsan vel. Mauris vulputate feugiat quam, et venenatis nulla sollicitudin eget. Mauris consequat tortor ut magna tristique sodales. Sed facilisis elit id tellus pulvinar, non molestie felis congue.
+
 
 [Tableau dashboard](https://public.tableau.com/profile/mikhailr#!/vizhome/demo_report_0/Story1)
