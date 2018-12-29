@@ -23,5 +23,4 @@ Data-centric professional with 5+ years of experience in marketing, project and 
 * Built a predictive model and an interactive map for Chicago residential real estate market based on 19 different metrics leveraging R and Leaflet maps
 
 [Project's Portfolio](http://mikhailr.com/)
-
 [Resume](https://github.com/Mikhailry/mikhailry.github.io/blob/master/assets/docs/Mikhail_Rybalchenko_Resume.pdf)
