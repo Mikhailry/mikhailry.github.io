@@ -21,12 +21,12 @@ gallery:
     alt: "mobile marketing trends"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum metus ligula, sit amet consectetur massa luctus non. Curabitur auctor dapibus mauris non vehicula. In mollis ultricies tortor, nec lacinia metus dignissim ut. Quisque semper, eros sed porta fringilla, turpis magna gravida nulla, tincidunt consequat magna lorem sed tellus. Nulla sed lorem purus. Donec vel ipsum in dui fringilla lobortis. Vivamus vitae justo aliquet, dapibus felis eget, ullamcorper arcu. Donec condimentum lectus risus, eget lobortis elit bibendum vel. Sed ut justo diam. Donec pulvinar felis ante, in fringilla nibh accumsan vel. Mauris vulputate feugiat quam, et venenatis nulla sollicitudin eget. Mauris consequat tortor ut magna tristique sodales. Sed facilisis elit id tellus pulvinar, non molestie felis congue.
+## Goals
 
+* Define KPI's for FMCG promo campaign via email and mobile (text, viber) channels
+* Build interactive dashboards in Tableau to track number of code activations attributed to the campaign communications in total and separately for each communications channel
+* Build interactive dashboards to track main performance metrics for email and mobile campaigns (Open rate, CTR, unsibsribe rate, complain rate, bounce rates etc.)
 
 {% include gallery caption="Interactive dashboards for main KPI's" %}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum metus ligula, sit amet consectetur massa luctus non. Curabitur auctor dapibus mauris non vehicula. In mollis ultricies tortor, nec lacinia metus dignissim ut. Quisque semper, eros sed porta fringilla, turpis magna gravida nulla, tincidunt consequat magna lorem sed tellus. Nulla sed lorem purus. Donec vel ipsum in dui fringilla lobortis. Vivamus vitae justo aliquet, dapibus felis eget, ullamcorper arcu. Donec condimentum lectus risus, eget lobortis elit bibendum vel. Sed ut justo diam. Donec pulvinar felis ante, in fringilla nibh accumsan vel. Mauris vulputate feugiat quam, et venenatis nulla sollicitudin eget. Mauris consequat tortor ut magna tristique sodales. Sed facilisis elit id tellus pulvinar, non molestie felis congue.
-
 
 [Tableau dashboard](https://public.tableau.com/profile/mikhailr#!/vizhome/demo_report_0/Story1)

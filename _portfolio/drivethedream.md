@@ -1,6 +1,6 @@
 ---
 title: "Drive the dream"
-excerpt: "Define marketing strategy KPI's and build interactive dashboards"
+excerpt: "Define online marketing strategy KPI's and build interactive dashboards for automotive distributor"
 header:
   #image: /assets/images/unsplash-gallery-image-1.jpg
   teaser: assets/images/drivethedream/dashboard-th.png
@@ -8,7 +8,7 @@ sidebar:
   - title: "Responsibilities"
     #image: http://placehold.it/350x250
     #image_alt: "logo"
-    text: "Designer, Front-End Developer"
+    text: "KPI's definition, dummy data generation, interactive Tableau dashboards"
 #gallery:
   - url: /assets/images/unsplash-gallery-image-1.jpg
     image_path: assets/images/unsplash-gallery-image-1-th.jpg
@@ -21,7 +21,23 @@ sidebar:
     alt: "placeholder image 3"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum metus ligula, sit amet consectetur massa luctus non. Curabitur auctor dapibus mauris non vehicula. In mollis ultricies tortor, nec lacinia metus dignissim ut. Quisque semper, eros sed porta fringilla, turpis magna gravida nulla, tincidunt consequat magna lorem sed tellus. Nulla sed lorem purus. Donec vel ipsum in dui fringilla lobortis. Vivamus vitae justo aliquet, dapibus felis eget, ullamcorper arcu. Donec condimentum lectus risus, eget lobortis elit bibendum vel. Sed ut justo diam. Donec pulvinar felis ante, in fringilla nibh accumsan vel. Mauris vulputate feugiat quam, et venenatis nulla sollicitudin eget. Mauris consequat tortor ut magna tristique sodales. Sed facilisis elit id tellus pulvinar, non molestie felis congue.
+## Goals
 
+* Define KPI's for online marketing communications with leads in order to increase number of requests for test-drive, quote and callback.
+* Build interactive dashboard to track lead's engagement.
+
+## Dashboard description
+
+Every lead has it's own life-cycle stage (Prospect, AciveFirstView, Interested, Ready2Buy).
+
+* Conversion from different Lead Stages shows the percentage of requests from lead life-cycle stage. The higher the stage, the more engaged the user.
+
+* Conversion to request: percentage of requests for all new leads. Metric to show the effectiveness of online marketing campaigns.
+
+* TD ratio to all requests: frequency of requests for test-drive to total number of requests. Test-drive requests strategically have more value for the company as conversion to purchase from handovered test-drives is much higher in comparison to other types of requests.
+
+* Conversion to purchase: conversion to purchase for different types of requests.
+
+* Leads by stage funnel: an overview of the number of leads at each leads life-cycle stage.
 
 [Tableau dashboard](https://public.tableau.com/profile/mikhailr#!/vizhome/DriveYourDream/Dashboard1)

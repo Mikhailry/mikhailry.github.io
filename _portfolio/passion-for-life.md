@@ -41,12 +41,11 @@ Leads - contacts in a database with no purchase, no test drive, trade-in or show
     * average (mean) number of days from lead to purchase (mean time to convert)
     * median number of days from lead to purchase (median time to convert)
 
+{% include gallery caption="Interactive dashboards for main KPI's" %}
+
 # Traffic sources
 
 As part of the project, a targeted audience will be acquired. Each such user will have a flag 'direct' to assess performance metrics for 'direct' group vs all.
-
-
-{% include gallery caption="Interactive dashboards for main KPI's" %}
 
 
 ## New model launch (6 months campaign)
