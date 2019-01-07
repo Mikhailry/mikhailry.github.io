@@ -3,7 +3,7 @@ title: "Truck maintenance"
 excerpt: "Develop business rules that help to determine if a truck is due for maintenance"
 header:
   #image: /assets/images/unsplash-gallery-image-1.jpg
-  teaser: assets/images/truckmaintenance/truckmaintenance-th.png
+  teaser: assets/images/truckmaintenance/dtree-reg2-th.png
 sidebar:
   - title: "Responsibilities"
     #image: http://placehold.it/350x250
@@ -59,6 +59,7 @@ For variable selection we utilize the ‘ExtraTreesClassifier’, to define scor
 Extra Trees Classifier fits a number of randomized decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. Feature importance is extracted from the fitted model and cutoff is made. It is seen from the table below, that only first variable is substantially more important than others, difference between others is quite small.
 
 Variable importance for region 3 (first 8 variables in descending order of importance):
+
 ![Variable importance region 3](/assets/images/truckmaintenance/variable-importance.png "Variable importance region 3")
 
 It is similar for regions 1 and 2.
