@@ -98,3 +98,6 @@ DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=3, max_
 
 ROC for developed models:
 ![ROC for developed models](/assets/images/truckmaintenance/roc.png "ROC for developed models")
+
+
+[Repository](https://github.com/Mikhailry/trucks-maintenance)
